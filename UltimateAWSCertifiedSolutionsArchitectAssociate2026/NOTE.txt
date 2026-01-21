@@ -69,3 +69,11 @@ IAM Policies Structure:
     Action: list of actions this policy allows or denies
     Resource: list of resources to which the actions applied to
     Condition: conditions for when this policy is in effect (optional)
+
+
+>>aws configure         # Configure AWS CLI for connect to AWS
+>>aws iam list-users    # List all users in AWS Cloud
+                  --region <region>
+
+
+EC2 Instance  # Virtual Service
