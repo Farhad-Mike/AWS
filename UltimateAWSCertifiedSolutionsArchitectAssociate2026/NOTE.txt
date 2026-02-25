@@ -584,3 +584,24 @@ SSL – Server Name Indication (SNI):
   It’s a “newer” protocol, and requires the client to indicate the hostname of the target server in the initial SSL handshake
   The server will then find the correct certificate, or return the default one
 NOTE: Only works for ALB & NLB (newer generation), CloudFront. Does not work for CLB (older gen)
+
+
+Connection Draining:
+  Feature naming
+    Connection Draining – for CLB
+    Deregistration Delay – for ALB & NLB
+  Time to complete “in-flight requests” while the instance is de-registering or unhealthy
+  Stops sending new requests to the EC2 instance which is de-registering
+  Between 1 to 3600 seconds (default: 300 seconds)
+  Can be disabled (set value to 0)
+  Set to a low value if your requests are short
+
+
+What’s an Auto Scaling Group?:
+  The goal of an Auto Scaling Group (ASG) is to:
+    Scale out (add EC2 instances) to match an increased load
+    Scale in (remove EC2 instances) to match a decreased load
+    Ensure we have a minimum and a maximum number of EC2 instances running
+    Automatically register new instances to a load balancer
+    Re-create an EC2 instance in case a previous one is terminated (ex: if unhealthy)
+  ASG are free (you only pay for the underlying EC2 instances)
